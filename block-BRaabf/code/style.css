@@ -1,0 +1,38 @@
+.btn-div > * {
+  margin-right: 1rem;
+}
+.btn-div {
+  display: flex;
+  justify-content: center;
+}
+.sec-padding {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+.text-center {
+  text-align: center;
+}
+.sec-padding img {
+  height: 30rem;
+}
+.btn-pri {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  background-color: rgb(88, 182, 88);
+  color: wheat;
+}
+.btn-sec {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgb(75, 59, 161);
+  color: wheat;
+}
+h5 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+h3 {
+  font-size: 3rem;
+  font-weight: 800;
+}
