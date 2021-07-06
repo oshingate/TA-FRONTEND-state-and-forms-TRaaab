@@ -1,0 +1,16 @@
+.btn-div > * {
+  margin-right: 1rem;
+}
+.btn-div {
+  display: flex;
+  justify-content: center;
+}
+.sec-padding {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sec-padding img {
+  height: 30rem;
+}
