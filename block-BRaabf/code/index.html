@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container" id="root"></div>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Load our React component. -->
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            counter: 0,
+            step: 1,
+            max: 9999999999999999999,
+          };
+        }
+
+        handleStep = (value) => {
+          this.setState({
+            step: Number(value),
+          });
+        };
+
+        handleMax = (value) => {
+          this.setState({
+            max: Number(value),
+          });
+        };
+
+        handleInc = () => {
+          if (this.state.counter + this.state.step < this.state.max) {
+            this.setState({
+              counter: this.state.counter + Number(this.state.step),
+            });
+          }
+        };
+
+        handleDec = () => {
+          this.setState({
+            counter: this.state.counter - Number(this.state.step),
+          });
+        };
+
+        handleReset = () => {
+          this.setState({
+            counter: 0,
+          });
+        };
+        render() {
+          return (
+            <div className='center'>
+              <div className='sec-padding'>
+                <h3>{this.state.counter}</h3>
+              </div>
+
+              <div className='flex'>
+                <div>
+                  <h5 className='text-center'>Steps</h5>
+
+                  <div className='sec-padding'>
+                    <div className='btn-div'>
+                      <button
+                        className='btn-sec'
+                        onClick={() => {
+                          this.handleStep(5);
+                        }}
+                      >
+                        5
+                      </button>
+                      <button
+                        className='btn-sec'
+                        onClick={() => {
+                          this.handleStep(10);
+                        }}
+                      >
+                        10
+                      </button>
+                      <button
+                        className='btn-sec'
+                        onClick={() => {
+                          this.handleStep(15);
+                        }}
+                      >
+                        15
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h5 className='text-center'>Max</h5>
+
+                  <div className='sec-padding'>
+                    <div className='btn-div'>
+                      <button
+                        className='btn-sec'
+                        onClick={() => {
+                          this.handleMax(15);
+                        }}
+                      >
+                        15
+                      </button>
+                      <button
+                        className='btn-sec'
+                        onClick={() => {
+                          this.handleMax(50);
+                        }}
+                      >
+                        50
+                      </button>
+                      <button
+                        className='btn-sec'
+                        onClick={() => {
+                          this.handleMax(100);
+                        }}
+                      >
+                        100
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='btn-div'>
+                <button
+                  className='btn-pri'
+                  onClick={() => {
+                    this.handleInc();
+                  }}
+                >
+                  Incremnet
+                </button>
+                <button
+                  className='btn-pri'
+                  onClick={() => {
+                    this.handleDec();
+                  }}
+                >
+                  Decrement
+                </button>
+                <button
+                  className='btn-pri'
+                  onClick={() => {
+                    this.handleReset();
+                  }}
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
