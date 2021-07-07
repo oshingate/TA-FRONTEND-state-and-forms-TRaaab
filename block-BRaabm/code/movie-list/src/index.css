@@ -1,0 +1,268 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.flex {
+  display: flex;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+.sec-padding {
+  padding: 3rem 0;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.jsb {
+  justify-content: space-between;
+}
+
+.flex-20 {
+  flex: 0 1 20%;
+}
+.flex-80 {
+  flex: 0 1 80%;
+}
+.flex-100 {
+  flex: 0 1 100%;
+}
+
+body {
+  background-color: rgb(228, 226, 226);
+  font-family: 'Fira Sans', sans-serif;
+}
+.main-sec {
+  position: relative;
+}
+.aside-sec {
+  background: linear-gradient(
+    to bottom,
+    rgba(226, 233, 123, 0.596),
+    rgba(236, 119, 119, 0.473)
+  );
+  min-height: 100vh;
+  width: 13%;
+  position: fixed;
+  padding: 3rem;
+}
+.main-sec {
+  background: linear-gradient(
+    to bottom,
+    rgba(129, 189, 238, 0.596),
+    rgba(28, 46, 95, 0.473)
+  );
+  min-height: 100vh;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: inline-block;
+}
+.btn-pri {
+  background-color: rgb(19, 155, 37);
+  color: wheat;
+}
+.btn-sec {
+  background-color: rgb(155, 56, 56);
+  color: wheat;
+}
+.aside-div {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.nav-div {
+  display: flex;
+  flex-direction: column;
+}
+.nav-div > * {
+  margin-bottom: 1rem;
+}
+.aside-btn {
+  position: absolute;
+  height: 100vh;
+  background-color: teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+  color: white;
+}
+.main-sec {
+  position: relative;
+}
+.card-div {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4rem;
+}
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px gray;
+  padding: 1rem;
+  text-align: center;
+  margin: 1%;
+  flex: 0 1 43%;
+}
+.card > * {
+  margin-bottom: 1rem;
+}
+.card-img-div img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.card-img-div {
+  width: 100%;
+  height: 20rem;
+}
+.card h3 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+.card span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: orange;
+}
