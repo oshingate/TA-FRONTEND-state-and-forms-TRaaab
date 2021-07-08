@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Open+Sans:wght@300;400;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="root"></div>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Load our React component. -->
+    <script type="text/babel">
+      let root = document.querySelector('.root');
+
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            text: '',
+            date: '',
+            file: '',
+            textarea: '',
+            error: {
+              text: '',
+              date: '',
+              file: '',
+              textarea: '',
+            },
+          };
+        }
+
+        handleSubmit = (event) => {
+          event.preventDefault();
+          console.log(this.state);
+        };
+        handleChange = (event) => {
+          event.preventDefault();
+          let name = event.target.name;
+          let { text, date, file, textarea } = event.target;
+
+          let element = this.state[name];
+          let error = this.state.error;
+
+          switch (name) {
+            case 'text':
+              error.text =
+                element.length > 6 ? '' : 'length should be 6 char long';
+              break;
+            case 'date':
+              error.date =
+                element.length > 3 ? '' : 'length should be 3 char long';
+              break;
+            case 'file':
+              error.file =
+                element.length > 10 ? '' : 'length should be 10 char long';
+              break;
+            case 'textarea':
+              error.textarea =
+                element.length > 10 ? '' : 'length should be 10 char long';
+              break;
+
+            default:
+              break;
+          }
+
+          this.setState({
+            [name]: event.target.value,
+          });
+        };
+
+        render() {
+          return (
+            <section className='sec-padding container'>
+              <form onSubmit={this.handleSubmit}>
+                <fieldset>
+                  <label htmlFor='text'>Enter text</label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.text}
+                    type='text'
+                    name='text'
+                    id='text'
+                  />
+                  <span>{this.state.error.text}</span>
+                </fieldset>
+
+                <fieldset>
+                  <label htmlFor='date'>Enter date</label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.date}
+                    type='date'
+                    name='date'
+                    id='date'
+                  />
+                  <span>{this.state.error.date}</span>
+                </fieldset>
+
+                <fieldset>
+                  <label htmlFor='file'>Enter file</label>
+                  <input
+                    onChange={this.handleChange}
+                    type='file'
+                    name='file'
+                    id='file'
+                  />
+                  <span>{this.state.error.file}</span>
+                </fieldset>
+
+                <fieldset>
+                  <label htmlFor='readonly'>Enter readonly</label>
+                  <input
+                    type='text'
+                    readOnly={true}
+                    name='readonly'
+                    id='readonly'
+                  />
+                </fieldset>
+
+                <fieldset>
+                  <label htmlFor='textarea'>Enter textarea</label>
+                  <textarea
+                    onChange={this.handleChange}
+                    value={this.state.textarea}
+                    name='textarea'
+                    id='textarea'
+                    cols='30'
+                    rows='10'
+                  ></textarea>
+                  <span>{this.state.error.textarea}</span>
+                </fieldset>
+
+                <input type='submit' value='submit' />
+              </form>
+            </section>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
