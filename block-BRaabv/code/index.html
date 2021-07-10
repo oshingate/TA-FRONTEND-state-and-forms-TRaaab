@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Open+Sans:wght@300;400;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="root"></div>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Load our React component. -->
+    <script type="text/babel">
+      let root = document.querySelector('.root');
+
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            step: 'three',
+            user: {
+              fName: '',
+              lName: '',
+              date: '',
+              email: '',
+              address: '',
+              message: '',
+              choose: '',
+              sex: '',
+            },
+          };
+        }
+
+        handleChange = ({ target }) => {
+          let { name, value } = target;
+          this.setState({
+            user: { ...this.state.user, [name]: value },
+          });
+        };
+
+        stepOneSubmit = ({ target }) => {
+          this.setState({ step: 'two' });
+        };
+
+        stepTwoSubmit = ({ target }) => {
+          this.setState({ step: 'three' });
+        };
+
+        stepTwoPrev = ({ target }) => {
+          this.setState({ step: 'one' });
+        };
+        stepThreePrev = ({ target }) => {
+          this.setState({ step: 'two' });
+        };
+        stepThreeSubmit = (event) => {
+          event.preventDefault();
+          console.log(this.state.user);
+        };
+
+        render() {
+          return (
+            <section className='main-sec '>
+              <aside>
+                <img
+                  src='https://images.unsplash.com/photo-1549241520-425e3dfc01cb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTczfHxibHVlJTIwZGVzaWdufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+                  alt='asideimg'
+                />
+              </aside>
+              <main>
+                <ul className='flex header-ul'>
+                  <li>
+                    <a
+                      className={
+                        this.state.step === 'one' ? 'active' : 'deactive'
+                      }
+                      href='#'
+                    >
+                      1
+                    </a>
+                    <span>Sign-up</span>
+                  </li>
+                  <li>
+                    <a
+                      className={
+                        this.state.step === 'two' ? 'active' : 'deactive'
+                      }
+                      href='#'
+                    >
+                      2
+                    </a>
+                    <span>Message</span>
+                  </li>
+                  <li>
+                    <a
+                      className={
+                        this.state.step === 'three' ? 'active' : 'deactive'
+                      }
+                      href='#'
+                    >
+                      3
+                    </a>
+                    <span>Checkbox</span>
+                  </li>
+                </ul>
+                <hr />
+                {this.state.step === 'one' ? (
+                  <section>
+                    <form onSubmit={this.stepOneSubmit}>
+                      <div>
+                        <h3>Step 1/3</h3>
+                        <h2>Sign up</h2>
+                      </div>
+                      <div className='step-one-div'>
+                        <fieldset>
+                          <label htmlFor='fName'>First Name</label>
+                          <input
+                            onChange={this.handleChange}
+                            type='text'
+                            name='fName'
+                            value={this.state.user.fName}
+                          />
+                          <span></span>
+                        </fieldset>
+                        <fieldset>
+                          <label htmlFor='lName'>Last Name</label>
+                          <input
+                            onChange={this.handleChange}
+                            type='text'
+                            name='lName'
+                            value={this.state.user.lName}
+                          />
+                          <span></span>
+                        </fieldset>
+                        <fieldset>
+                          <label htmlFor='date'>Date Of Birth</label>
+                          <input
+                            onChange={this.handleChange}
+                            type='date'
+                            value={this.state.user.date}
+                            name='date'
+                          />
+                          <span></span>
+                        </fieldset>
+                        <fieldset>
+                          <label htmlFor='email'>Email</label>
+                          <input
+                            onChange={this.handleChange}
+                            type='email'
+                            value={this.state.user.email}
+                            name='email'
+                          />
+                          <span></span>
+                        </fieldset>
+                        <fieldset>
+                          <label htmlFor='address'>Address</label>
+                          <input
+                            onChange={this.handleChange}
+                            value={this.state.user.address}
+                            type='text'
+                            name='address'
+                          />
+                          <span></span>
+                        </fieldset>
+                      </div>
+                      <button className='btn btn-pri' type='submit'>
+                        Next Step
+                      </button>
+                    </form>
+                  </section>
+                ) : (
+                  ''
+                )}
+
+                {this.state.step === 'two' ? (
+                  //step 2
+
+                  <section>
+                    <form>
+                      <div>
+                        <h3>Step 2/3</h3>
+                        <h2>message</h2>
+                      </div>
+                      <div className='step-two-div'>
+                        <fieldset>
+                          <label htmlFor='fName'>Mesage</label>
+                          <textarea
+                            onChange={this.handleChange}
+                            name='message'
+                            id='message'
+                            cols='30'
+                            rows='10'
+                          >
+                            {this.state.user.message}
+                          </textarea>
+                          <span></span>
+                        </fieldset>
+                        <fieldset className='radio-div'>
+                          <input
+                            onChange={this.handleChange}
+                            type='radio'
+                            name='choose'
+                            id='choose1'
+                            value='first'
+                            checked={
+                              this.state.user.choose === 'first' ? true : false
+                            }
+                          />
+                          <label htmlFor='choose1'>choose first</label>
+
+                          <input
+                            onChange={this.handleChange}
+                            type='radio'
+                            name='choose'
+                            id='choose2'
+                            value='second'
+                            checked={
+                              this.state.user.choose === 'second' ? true : false
+                            }
+                          />
+                          <label htmlFor='choose2'>choose second</label>
+                        </fieldset>
+                      </div>
+                      <button
+                        onClick={this.stepTwoPrev}
+                        className='btn btn-pri'
+                        type='submit'
+                      >
+                        Previous Step
+                      </button>
+                      <button
+                        onClick={this.stepTwoSubmit}
+                        className='btn btn-pri'
+                        type='submit'
+                      >
+                        Next Step
+                      </button>
+                    </form>
+                  </section>
+                ) : (
+                  ''
+                )}
+
+                {this.state.step === 'three' ? (
+                  //step 3
+
+                  <section>
+                    <form>
+                      <div>
+                        <h3>Step 3/3</h3>
+                        <h2>Checkbox</h2>
+                      </div>
+                      <div className='step-three-div'>
+                        <div className='flex sex-div'>
+                          <label
+                            htmlFor='male'
+                            className={
+                              this.state.user.sex === 'male' ? 'selected' : ''
+                            }
+                          >
+                            <img
+                              src='https://toppng.com/uploads/preview/male-symbol-11550718972h3jxxs74hb.png'
+                              alt='maleImg'
+                            />
+                          </label>
+                          <label
+                            htmlFor='female'
+                            className={
+                              this.state.user.sex === 'female' ? 'selected' : ''
+                            }
+                          >
+                            <img
+                              src='https://e7.pngegg.com/pngimages/175/960/png-clipart-male-logo-public-toilet-gender-symbol-bathroom-female-ladies-furniture-hand.png'
+                              alt='femaleimg'
+                            />
+                          </label>
+                        </div>
+                        <input
+                          onChange={this.handleChange}
+                          type='radio'
+                          name='sex'
+                          id='male'
+                          value='male'
+                          checked={
+                            this.state.user.sex === 'male' ? true : false
+                          }
+                        />
+                        <label htmlFor='male'>I'm Male</label>
+                        <input
+                          onChange={this.handleChange}
+                          type='radio'
+                          name='sex'
+                          id='female'
+                          value='female'
+                          checked={
+                            this.state.user.sex === 'female' ? true : false
+                          }
+                        />
+
+                        <label htmlFor='female'>I'm Female</label>
+                      </div>
+                      <button
+                        onClick={this.stepThreePrev}
+                        className='btn btn-pri'
+                        type='submit'
+                      >
+                        Previous Step
+                      </button>
+                      <button
+                        onClick={this.stepThreeSubmit}
+                        className='btn btn-pri'
+                        type='submit'
+                      >
+                        Submit
+                      </button>
+                    </form>
+                  </section>
+                ) : (
+                  ''
+                )}
+              </main>
+            </section>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
