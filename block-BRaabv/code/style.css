@@ -1,0 +1,345 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#same {
+  width: auto;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sec-padding {
+  padding: 3rem 0;
+}
+
+.forms-div {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+input {
+  width: 100%;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  outline: none;
+  border: 1px solid #bdbaba;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+body {
+  background-color: rgba(194, 192, 192, 0.199);
+}
+
+.main-sec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: white;
+  border-radius: 30px;
+  margin: 4rem;
+}
+
+aside {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 30%;
+          flex: 0 1 30%;
+  height: 80vh;
+}
+
+aside img {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 30px 0 0 30px;
+}
+
+main {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 70%;
+          flex: 0 1 70%;
+}
+
+main hr {
+  margin: 0 4rem;
+}
+
+.header-ul {
+  padding: 2rem 4rem;
+}
+
+.header-ul li {
+  margin-right: 4rem;
+}
+
+.header-ul li a {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+
+.header-ul li span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #196aa0;
+}
+
+.active {
+  background-color: #0c75ff;
+}
+
+.deactive {
+  background-color: #cfc8c8;
+}
+
+form {
+  padding: 4rem;
+}
+
+form h3 {
+  font-size: 0.7rem;
+  color: gray;
+}
+
+form h2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #215bc7;
+}
+
+form > * {
+  margin-bottom: 2rem;
+}
+
+form label {
+  font-weight: 700;
+  color: #515158;
+}
+
+.step-one-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.step-one-div fieldset {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 48%;
+          flex: 1 1 48%;
+  margin: 1%;
+}
+
+.step-one-div fieldset > * {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.btn-pri {
+  background-color: #0c75ff;
+  color: white;
+}
+
+.step-two-div textarea {
+  width: 100%;
+}
+
+.step-two-div > * {
+  margin-bottom: 2rem;
+}
+
+.radio-div input {
+  width: 3rem;
+}
+
+.radio-div span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.sex-div {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.sex-div label {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 25%;
+          flex: 0 1 25%;
+  height: 7rem;
+  margin: 1% 10%;
+  background-color: gray;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sex-div img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.step-three-div {
+  padding: 1rem;
+}
+
+.step-three-div #male,
+.step-three-div #female {
+  width: 3rem;
+}
+
+.selected {
+  border: 3px solid #3c9cdb;
+}
+/*# sourceMappingURL=style.css.map */
