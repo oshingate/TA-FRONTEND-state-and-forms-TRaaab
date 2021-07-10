@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Open+Sans:wght@300;400;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="root"></div>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Load our React component. -->
+    <script type="text/babel">
+      let root = document.querySelector('.root');
+
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            address: '',
+            zip: '',
+            city: '',
+            country: '',
+            error: {
+              address: '',
+              zip: '',
+              city: '',
+              country: '',
+            },
+            copy: false,
+            shipping: {
+              address: '',
+              zip: '',
+              city: '',
+              country: '',
+              error: {
+                address: '',
+                zip: '',
+                city: '',
+                country: '',
+              },
+            },
+          };
+        }
+
+        copyBilling = ({ target }) => {
+          if (target.checked) {
+            this.setState({ copy: true });
+            this.state.shipping.address = this.state.address;
+            this.state.shipping.zip = this.state.zip;
+            this.state.shipping.city = this.state.city;
+            this.state.shipping.country = this.state.country;
+          } else {
+            this.setState({ copy: false });
+            this.state.shipping.address = '';
+            this.state.shipping.zip = '';
+            this.state.shipping.city = '';
+            this.state.shipping.country = '';
+          }
+        };
+
+        handleChange1 = ({ target }) => {
+          let name = event.target.name;
+          this.setState({
+            shipping: {
+              [name]: event.target.value,
+            },
+          });
+        };
+        handleChange = (event) => {
+          let name = event.target.name;
+          this.setState({
+            [name]: event.target.value,
+          });
+
+          switch (name) {
+            case 'address':
+              this.state.error.address =
+                this.state.address.length > 9
+                  ? ''
+                  : 'address should be of 10 char long';
+              break;
+            case 'zip':
+              this.state.error.zip =
+                this.state.zip.length === 5 ? '' : 'zip should contain 6 chars';
+              break;
+
+            case 'city':
+              this.state.error.city =
+                this.state.city.length > 4
+                  ? ''
+                  : 'city should be of 5 char long';
+              break;
+
+            case 'country':
+              this.state.error.country =
+                this.state.country.length > 4
+                  ? ''
+                  : 'country should be of 5 char long';
+              break;
+
+            default:
+              break;
+          }
+        };
+
+        render() {
+          return (
+            <section className='sec-padding container'>
+              <div className='forms-div flex '>
+                <form className='billing-form' onSubmit={this.handleSubmit}>
+                  <h2>Billing Address</h2>
+                  <fieldset>
+                    <label htmlFor='address'>Address</label>
+                    <input
+                      onChange={this.handleChange}
+                      value={this.state.address}
+                      type='text'
+                      name='address'
+                    />
+                    <span>{this.state.error.address}</span>
+                  </fieldset>
+
+                  <fieldset>
+                    <label htmlFor='zip'>Zip code</label>
+                    <input
+                      onChange={this.handleChange}
+                      value={this.state.zip}
+                      type='number'
+                      name='zip'
+                    />
+                    <span>{this.state.error.zip}</span>
+                  </fieldset>
+
+                  <fieldset>
+                    <label htmlFor='city'>City</label>
+                    <input
+                      onChange={this.handleChange}
+                      value={this.state.city}
+                      type='text'
+                      name='city'
+                    />
+                    <span>{this.state.error.city}</span>
+                  </fieldset>
+
+                  <fieldset>
+                    <label htmlFor='country'>Country</label>
+                    <input
+                      onChange={this.handleChange}
+                      value={this.state.country}
+                      type='text'
+                      name='country'
+                    />
+                    <span>{this.state.error.country}</span>
+                  </fieldset>
+                </form>
+
+                <form className='shipping-form' onSubmit={this.handleSubmit}>
+                  <h2>Shipping Address</h2>
+
+                  <fieldset>
+                    <label htmlFor='address'>same as billing address</label>
+                    <input
+                      onChange={this.copyBilling}
+                      type='checkbox'
+                      name='same'
+                      id='same'
+                    />
+                  </fieldset>
+
+                  <fieldset>
+                    <label htmlFor='address'>Address</label>
+                    <input
+                      onChange={this.handleChange1}
+                      value={this.state.shipping.address}
+                      type='text'
+                      name='address'
+                    />
+                  </fieldset>
+
+                  <fieldset>
+                    <label htmlFor='zip'>Zip code</label>
+                    <input
+                      onChange={this.handleChange1}
+                      value={this.state.shipping.zip}
+                      type='number'
+                      name='zip'
+                    />
+                  </fieldset>
+
+                  <fieldset>
+                    <label htmlFor='city'>City</label>
+                    <input
+                      onChange={this.handleChange1}
+                      value={this.state.shipping.city}
+                      type='text'
+                      name='city'
+                    />
+                  </fieldset>
+
+                  <fieldset>
+                    <label htmlFor='country'>Country</label>
+                    <input
+                      onChange={this.handleChange1}
+                      value={this.state.shipping.country}
+                      type='text'
+                      name='country'
+                    />
+                  </fieldset>
+                </form>
+              </div>
+            </section>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
