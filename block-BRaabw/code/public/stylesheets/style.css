@@ -179,8 +179,8 @@ table {
 
 .flex-25 {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 23%;
-          flex: 0 1 23%;
+      -ms-flex: 0 1 22%;
+          flex: 0 1 22%;
   margin: 1%;
 }
 
@@ -206,11 +206,11 @@ table {
 
 .cart-logo span {
   position: absolute;
-  top: 10;
-  right: 10;
-  height: 1rem;
-  width: 1rem;
-  font-size: 0.8rem;
+  top: 5;
+  right: 5;
+  height: 1.2rem;
+  width: 1.2rem;
+  font-size: 1rem;
   border-radius: 50%;
   background-color: goldenrod;
   color: white;
@@ -264,7 +264,6 @@ main {
       -ms-flex: 0 1 81%;
           flex: 0 1 81%;
   margin: 1%;
-  position: relative;
 }
 
 .card {
@@ -310,11 +309,14 @@ main {
   font-weight: 600;
 }
 
+body {
+  position: relative;
+}
+
 .cart-sec {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
-  min-height: 80vh;
   width: 400px;
   background-color: #141414;
   padding: 3rem;
@@ -327,6 +329,103 @@ main {
   font-weight: 700;
 }
 
+.div-padding {
+  padding: 3rem 0;
+}
+
+.cart-main h2 {
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cartCard {
+  padding: 2rem;
+  background-color: #ffffff2d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.cartCard .cartCard-imgDiv {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+}
+
+.cartCard .cartCard-content {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  color: white;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cartCard .cartCard-content > * {
+  margin-bottom: 1rem;
+}
+
+.cartCard .cartCard-content h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: wheat;
+}
+
+.cartCard .cartCard-content h6 {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.cartCard .cartCard-content span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c59336;
+}
+
+.cartCard .cartCard-content .addRemove-cart > * {
+  margin-right: 1rem;
+}
+
+.cartCard .cartCard-content .addRemove-cart svg {
+  color: goldenrod;
+  height: 2rem;
+  width: 2rem;
+}
+
+.cartCard-total {
+  padding: 2rem 0;
+}
+
+.cartCard-total > * {
+  margin-bottom: 1rem;
+}
+
+.cartCard-total h3 {
+  text-align: center;
+  color: goldenrod;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.cartCard-total a {
+  margin: 0 auto;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -335,6 +434,7 @@ main {
 a {
   text-decoration: none;
   color: black;
+  display: inline-block;
 }
 
 .flexi-img {
@@ -370,6 +470,13 @@ body {
 .btn-pri {
   padding: 0.5rem 1rem;
   background-color: #272727;
+  color: white;
+  border-radius: 7px;
+}
+
+.btn-sec {
+  padding: 0.5rem 1rem;
+  background-color: goldenrod;
   color: white;
   border-radius: 7px;
 }

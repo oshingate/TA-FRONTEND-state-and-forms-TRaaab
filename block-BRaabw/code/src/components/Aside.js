@@ -16,7 +16,6 @@ class Aside extends React.Component {
           {this.props.data.arrOfSize.map((ele, i) => {
             return (
               <li key={i}>
-                {console.log(this.props.handleSortBySize)}
                 <a
                   onClick={(event) => this.props.handleSortBySize(event, ele)}
                   className={
@@ -32,6 +31,10 @@ class Aside extends React.Component {
             );
           })}
         </ul>
+
+        <a href='#' className='btn-pri' onClick={this.props.handleResetSort}>
+          Reset
+        </a>
       </aside>
     );
   }
